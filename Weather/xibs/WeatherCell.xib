@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14810.11" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14810.11"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner"/>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView id="Hz6-mo-xeY">
+            <rect key="frame" x="0.0" y="0.0" width="125" height="125"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="OMt-uR-S14">
+                    <rect key="frame" x="36" y="99" width="53" height="18"/>
+                    <textFieldCell key="cell" lineBreakMode="clipping" title="Satuday" id="MKO-1H-M1M">
+                        <font key="font" size="13" name="AvenirNext-DemiBold"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                    </textFieldCell>
+                </textField>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Dzd-15-OTA">
+                    <rect key="frame" x="6" y="4" width="20" height="18"/>
+                    <textFieldCell key="cell" lineBreakMode="clipping" title="26" id="Sfh-Za-YSc">
+                        <font key="font" size="13" name="AvenirNext-DemiBold"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </textFieldCell>
+                </textField>
+                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="XeA-E2-dGo">
+                    <rect key="frame" x="30" y="30" width="65" height="65"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="65" id="Hqx-Hu-P4x"/>
+                        <constraint firstAttribute="height" constant="65" id="hOH-Zg-Nwl"/>
+                    </constraints>
+                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="Clear" id="yAt-c0-fNW"/>
+                </imageView>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="haA-Kp-Jh9">
+                    <rect key="frame" x="99" y="4" width="20" height="18"/>
+                    <textFieldCell key="cell" lineBreakMode="clipping" title="33" id="XBr-dS-uTM">
+                        <font key="font" size="13" name="AvenirNext-DemiBold"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </textFieldCell>
+                </textField>
+            </subviews>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="Dzd-15-OTA" secondAttribute="bottom" constant="4" id="0pc-da-5NG"/>
+                <constraint firstItem="XeA-E2-dGo" firstAttribute="centerY" secondItem="Hz6-mo-xeY" secondAttribute="centerY" id="3pi-Xx-jeb"/>
+                <constraint firstItem="XeA-E2-dGo" firstAttribute="centerX" secondItem="Hz6-mo-xeY" secondAttribute="centerX" id="Dwf-PL-81y"/>
+                <constraint firstAttribute="bottom" secondItem="haA-Kp-Jh9" secondAttribute="bottom" constant="4" id="FYo-Dy-sLT"/>
+                <constraint firstAttribute="trailing" secondItem="haA-Kp-Jh9" secondAttribute="trailing" constant="8" id="RrL-rj-MHi"/>
+                <constraint firstItem="Dzd-15-OTA" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="8" id="ZCx-bs-cDv"/>
+                <constraint firstItem="OMt-uR-S14" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" constant="8" id="j15-GP-2YR"/>
+                <constraint firstItem="OMt-uR-S14" firstAttribute="centerX" secondItem="Hz6-mo-xeY" secondAttribute="centerX" id="kia-hp-CRw"/>
+            </constraints>
+            <point key="canvasLocation" x="138.5" y="153.5"/>
+        </customView>
+        <collectionViewItem nibName="WeatherCell" id="zos-0U-s6Y" customClass="WeatherCell" customModule="Weather" customModuleProvider="target">
+            <connections>
+                <outlet property="highTemperatureLabel" destination="haA-Kp-Jh9" id="bvg-PG-SWd"/>
+                <outlet property="lowTemperatureLabel" destination="Dzd-15-OTA" id="QFG-8D-IHS"/>
+                <outlet property="view" destination="Hz6-mo-xeY" id="p3S-Qt-93B"/>
+                <outlet property="weatherImageView" destination="XeA-E2-dGo" id="gNl-FP-Sda"/>
+                <outlet property="weekDayLabel" destination="OMt-uR-S14" id="Qh2-cn-Hc8"/>
+            </connections>
+        </collectionViewItem>
+        <userDefaultsController representsSharedInstance="YES" id="1tp-E6-m8Z"/>
+    </objects>
+    <resources>
+        <image name="Clear" width="96" height="96"/>
+    </resources>
+</document>
