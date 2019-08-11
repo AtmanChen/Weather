@@ -28,12 +28,31 @@ public class WeatherService {
                 completion(.failure(.responseEmpty))
                 return
             }
-            
             do {
                 let weather = try JSONDecoder().decode(CurrentWeather.self, from: data)
                 completion(.success(weather))
             } catch {
                 completion(.failure(.responseEmpty))
+            }
+        }.resume()
+        
+    }
+    
+    public func forecastWeather(lat: Double,
+                                lon: Double,
+                                completion: @escaping (Result<ForecastWeather, WeatherError>) -> Void) {
+        let url = forecastWeatherUrl(lat: lat, lon: lon, dayCount: 7)
+        URLSession.shared.dataTask(with: URL(string: url)!) { data, resp, error in
+            guard let data = data else {
+                completion(.failure(.requestFailed(message: error!.localizedDescription)))
+                return
+            }
+            print(try! JSONSerialization.jsonObject(with: data, options: .mutableContainers))
+            do {
+                let forecastWeather = try JSONDecoder().decode(ForecastWeather.self, from: data)
+                completion(.success(forecastWeather))
+            } catch {
+                completion(.failure(.jsonParseFaield))
             }
         }.resume()
     }

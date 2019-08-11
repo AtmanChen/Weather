@@ -710,7 +710,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="400" height="400"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <stackView distribution="fill" orientation="horizontal" alignment="bottom" spacing="108" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="V2w-yf-RAl">
+                            <stackView distribution="fillProportionally" orientation="horizontal" alignment="bottom" spacing="40" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="V2w-yf-RAl">
                                 <rect key="frame" x="20" y="235" width="360" height="145"/>
                                 <subviews>
                                     <stackView distribution="fill" orientation="vertical" alignment="centerX" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="omo-oz-9Vj">
@@ -752,11 +752,11 @@
                                             <real value="3.4028234663852886e+38"/>
                                         </customSpacing>
                                     </stackView>
-                                    <stackView distribution="fill" orientation="vertical" alignment="centerX" spacing="12" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PHi-sO-Ead">
-                                        <rect key="frame" x="239" y="0.0" width="121" height="132"/>
+                                    <stackView distribution="fill" orientation="vertical" alignment="centerX" spacing="4" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PHi-sO-Ead">
+                                        <rect key="frame" x="171" y="0.0" width="189" height="124"/>
                                         <subviews>
                                             <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6l9-HN-N4l">
-                                                <rect key="frame" x="11" y="32" width="100" height="100"/>
+                                                <rect key="frame" x="45" y="24" width="100" height="100"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="100" id="IIa-Lj-9HV"/>
                                                     <constraint firstAttribute="width" constant="100" id="i9h-lE-JUH"/>
@@ -764,7 +764,7 @@
                                                 <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="Clear" id="tlR-5N-Zqz"/>
                                             </imageView>
                                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="y6Y-jG-u0t">
-                                                <rect key="frame" x="40" y="0.0" width="41" height="20"/>
+                                                <rect key="frame" x="74" y="0.0" width="41" height="20"/>
                                                 <textFieldCell key="cell" lineBreakMode="clipping" title="Clear" id="jJ8-t0-Rcm">
                                                     <font key="font" size="15" name="AvenirNext-Regular"/>
                                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -799,7 +799,7 @@
                                     <subviews>
                                         <collectionView id="r6k-C6-JA5">
                                             <rect key="frame" x="0.0" y="0.0" width="360" height="158"/>
-                                            <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
+                                            <autoresizingMask key="autoresizingMask" heightSizable="YES"/>
                                             <collectionViewFlowLayout key="collectionViewLayout" minimumInteritemSpacing="10" minimumLineSpacing="10" scrollDirection="horizontal" id="iHh-Fp-Nfo">
                                                 <size key="itemSize" width="125" height="125"/>
                                                 <edgeInsets key="sectionInset" left="10" right="10" top="0.0" bottom="0.0"/>
@@ -849,6 +849,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Clear" width="96" height="96"/>
+        <image name="Clear" width="107" height="107"/>
     </resources>
 </document>

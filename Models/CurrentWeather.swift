@@ -8,9 +8,14 @@
 
 import Foundation
 
-public struct Coordinate: Codable {
+public struct Coordinate: Decodable {
     public let lat: Double
     public let lon: Double
+    
+    public init(lat: Double, lon: Double) {
+        self.lat = lat
+        self.lon = lon
+    }
 }
 
 public struct Weather: Decodable {
@@ -21,8 +26,8 @@ public struct Weather: Decodable {
 }
 
 public struct Wind: Decodable {
-    public let speed: Double
-    public let deg: Int
+    public let speed: Double?
+    public let deg: Double?
 }
 
 public struct Clouds: Decodable {
@@ -30,15 +35,14 @@ public struct Clouds: Decodable {
 }
 
 public struct LocationMessage: Decodable {
-    public let message: Double
     public let country: String
-    public let sunrise: Int
-    public let sunset: Int
+    public let sunrise: Double
+    public let sunset: Double
 }
 
 public struct MainDescription: Decodable {
     public let temp: Double
-    public let pressure: Double
+    public let pressure: Int
     public let humidity: Int
     public let minTemp: Double
     public let maxTemp: Double
@@ -54,24 +58,26 @@ public struct MainDescription: Decodable {
 
 public struct CurrentWeather: Decodable {
     public let coord: Coordinate
-    public let code: Int
+    public let cod: Int
     public let name: String
     public let id: Int
-    public let locationMessage: LocationMessage
+    public let sys: LocationMessage
     public let clouds: Clouds
     public let wind: Wind
-    public let date: Int
+    public let dt: Double
     public let main: MainDescription
+    public let weather: [Weather]
     
     private enum CodingKeys: String, CodingKey {
         case coord
-        case code
+        case cod
         case name
         case id
-        case locationMessage = "sys"
+        case sys
         case clouds
         case wind
-        case date
+        case dt
         case main
+        case weather
     }
 }

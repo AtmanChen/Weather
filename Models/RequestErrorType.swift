@@ -13,3 +13,9 @@ public enum WeatherError: Error {
     case responseEmpty
     case jsonParseFaield
 }
+
+
+public enum LocationServiceError: Error {
+    case authorizedFailed(message: String)
+    case locationFaield
+}
