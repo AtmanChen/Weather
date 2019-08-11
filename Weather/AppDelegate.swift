@@ -25,6 +25,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         statusBarItem.button?.title = "--°"
         statusBarItem.button?.action = #selector(AppDelegate.displayPopup(_:))
         statusBarItem.button?.isEnabled = false
+        statusBarItem.button?.sendAction(on: [.leftMouseUp, .rightMouseUp])
         
         LocationService.shared.startService { result in
             switch result {
@@ -51,8 +52,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             default: break
             }
         }
-        
-        
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {
@@ -61,14 +60,24 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     @objc
     func displayPopup(_ sender: AnyObject) {
-        let popUpView = NSPopover()
-        let weatherController = NSStoryboard(name: "Main", bundle: .main).instantiateController(withIdentifier: "WeatherViewController") as! WeatherViewController
-        popUpView.behavior = .transient
-        popUpView.contentViewController = weatherController
-        popUpView.show(relativeTo: statusBarItem.button!.bounds, of: statusBarItem.button!, preferredEdge: .maxY)
-        weatherController.currentWeather = self.currentWeather
-        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "didReceivedForecastData"), object: self.forecastWeather)
-        NSApp.activate(ignoringOtherApps: true)
+        let event = NSApp.currentEvent!
+        switch event.type {
+        case .leftMouseUp:
+            let popUpView = NSPopover()
+            let weatherController = NSStoryboard(name: "Main", bundle: .main).instantiateController(withIdentifier: "WeatherViewController") as! WeatherViewController
+            popUpView.behavior = .transient
+            popUpView.contentViewController = weatherController
+            popUpView.show(relativeTo: statusBarItem.button!.bounds, of: statusBarItem.button!, preferredEdge: .maxY)
+            weatherController.currentWeather = self.currentWeather
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "didReceivedForecastData"), object: self.forecastWeather)
+            NSApp.activate(ignoringOtherApps: true)
+        case .rightMouseUp:
+            let menu = NSMenu()
+            let quitItem = NSMenuItem(title: "Quit", action: #selector(NSApplication.terminate(_:)), keyEquivalent: "q")
+            menu.addItem(quitItem)
+            statusBarItem.menu = menu
+        default: break
+        }
     }
     
     func applicationWillResignActive(_ notification: Notification) {
